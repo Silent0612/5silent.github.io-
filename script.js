@@ -169,7 +169,7 @@ function createVirtualButtons() {
     virtualKeyboard.appendChild(button1);
 
     const button2 = document.createElement('button');
-    button2.textContent = "敲开地面";
+    button2.textContent = "迎击守卫";
     button2.addEventListener('click', () => handleDigChoice());
     virtualKeyboard.appendChild(button2);
 }
@@ -198,16 +198,16 @@ async function handlePatrolChoice() {
 async function handleDigChoice() {
     hideButtons(); // 隐藏选择按钮
     // 增加异步操作，让玩家有时间看到成功概率的变化
-    await showData('敲开地面');
-    await showMessage("你选择了敲开地面，希望能有所收获...");
+    await showData('迎击守卫');
+    await showMessage("你选择了迎击守卫，希望能有所收获...");
     await wait(3500); // 等待3.5秒后，显示调整后的结果
 
     successRateModifier = (Math.random() * 0.8) - 0.4; // -40% 到 +40% 的变化
     
     if (successRateModifier > 0) {
-        showMessage(`恭喜！这下面就是宝藏，经过计算，在守卫来之前我们${Math.round(successRateModifier * 100)}%的成功率`);
+        showMessage(`恭喜！这后面就是宝藏，经过计算，击败守卫我们${Math.round(successRateModifier * 100)}%的成功率`);
     } else {
-        showMessage(`警告！这动静太大了，守卫很有可能会出现，经过计算，找到宝藏的概率 ${Math.round(successRateModifier * 100)}%`);
+        showMessage(`警告！这动静太大了，其他守卫很有可能会出现，经过计算，找到宝藏的概率 ${Math.round(successRateModifier * 100)}%`);
     }
 
     await wait(3500); // 等待3.5秒后，显示调整后的结果
